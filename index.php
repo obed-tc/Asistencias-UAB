@@ -53,7 +53,7 @@
 
     .acceso {
     display: inline-block; /* Cambiado de 'block' a 'inline-block' */
-    background-color: #2ecc71; /* Cambiado a un color rojo (puedes ajustar el color según tus preferencias) */
+    background-color: #2ecc71; /* Cambiado a un color rojo  */
     color: #fff;
     padding: 8px 15px; /* Ajusta el padding para cambiar el tamaño del botón */
     text-decoration: none;
