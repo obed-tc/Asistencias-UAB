@@ -21,7 +21,7 @@
         color: white;
         text-align: center;
         font-family: 'Arial', sans-serif;
-        background-color: rgba(01, 0, 0, 0.5); /* Fondo semi transparente */
+        background-color: rgba(01, 0, 0, 0.5); /* Fondo semi */
     }
 
     h1 {
