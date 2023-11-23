@@ -41,6 +41,9 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                 <input type="text" placeholder="Apellido" class="input input__select" name="txtapellido">
             </div>
             <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
+                <input type="text" placeholder="CI" class="input input__select" name="txtdni">
+            </div>
+            <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
                 <select name="textcargo" class="input input__select">
                     <option value="">Seleccionar...</option>
                     <?php

@@ -41,7 +41,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
 
     if ($sql) {
     ?>
-        <a href="registro_usuario.php" class="btn btn-primary btn-bordered mb-3"><i class="fa-solid fa-plus"></i> &nbsp;REGISTRAR</a>
+        <a href="registro_usuario.php" class="btn btn-primary btn-bordered mb-3 ><i class="fa-solid fa-plus></i> &nbsp;REGISTRAR</a>
 
         <table class="table table-bordered table-hover col-12" id="example">
             <thead>

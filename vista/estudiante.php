@@ -31,9 +31,10 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
 <!-- inicio del contenido principal -->
 <div class="page-content">
 
-    <h4 class="text-center text-secondary">Lista de Estudiantes</h4>
+    <h4 class="text-center text-secondary">LISTA DE ESTUDIANTES</h4>
     <?php
     include "../modelo/conexion.php";
+    include "../controlador/controlador_modificar_estudiante.php";
     
     
     $sql = $conection->query("SELECT 
@@ -58,7 +59,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                     <th scope="col">ID</th>
                     <th scope="col">NOMBRE</th>
                     <th scope="col">APELLIDO</th>
-                    
+                    <th scope="col">CI</th>
                     <th scope="col">CARRERA</th>
                 </tr>
             </thead>
@@ -70,7 +71,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                         <td><?= $datos->id_empleado ?></td>
                         <td><?= $datos->nombre ?></td>
                         <td><?= $datos->apellido ?></td>
-                        
+                        <td><?= $datos->dni ?></td>
                         <td><?= $datos->nom_cargo ?></td>
                         <td>
                             <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_empleado ?>" class="btn btn-warning btn-sm-2"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -81,7 +82,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header d-flex justify-content-between">
-                                    <h5 class="modal-title w-100" id="exampleModalLabel">Modificar Usuario</h5>
+                                    <h5 class="modal-title w-100" id="exampleModalLabel">Modificar Estudiantes</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -99,10 +100,19 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                                                 <input type="text" placeholder="Apellido" class="input input__stext" name="txtapellido" value="<?= $datos->apellido ?>">
                                             </div>
                                             <div class="fl-flex-label mb-4 px-2 col-12 ">
-                                                <input type="text" placeholder="Usuario" class="input input__text" name="txtusuario" value="<?= $datos->usuario ?>">
+                                            <select name="textcargo" class="input input__select">
+                                                <?php
+                                                $sql2 = $conection->query("SELECT * FROM cargo");
+                                                while ($datos2 = $sql2->fetch_object()) { ?>
+                                                    <option <?= $datos->cargo == $datos2->id_cargo ? 'selected' : '' ?> value="<?= $datos2->id_cargo ?>"><?= $datos2->nombre ?></option>
+                                                <?php } ?>
+                                            </select>
+                                                
+                                            </div>
+
                                             </div>
                                             <div class="text-right p-2">
-                                                <a href="usuario.php" class="btn btn-secondary btn-bordered" data-dismiss="modal">Cerrar</a>
+                                                <a href="estudiante.php" class="btn btn-secondary btn-bordered" data-dismiss="modal">Cerrar</a>
                                                 <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-bordered">Modificar</button>
                                             </div>
                                         </form>
