@@ -5,7 +5,7 @@ if (!empty($_POST["btnentrada"])) {
         $consulta = $conection->query("SELECT COUNT(*) as 'total' FROM empleado WHERE dni='$ci'");
         
         if ($consulta->fetch_object()->total > 0) {
-            $id = $conection->query("select id_empleado from empleado where dni='$ci'");
+            $id = $conection->query("SELECT id_empleado FROM empleado WHERE dni='$ci'");
             $id_empleado = $id->fetch_object()->id_empleado;
             
             $fecha = date("Y-m-d H:i:s");
@@ -24,7 +24,7 @@ if (!empty($_POST["btnentrada"])) {
                     });
                 </script>
             <?php } else {
-            ?>
+                ?>
                 <script>
                     $(function notificacion() {
                         new PNotify({
@@ -72,21 +72,21 @@ if (!empty($_POST["btnentrada"])) {
         }, 0);
     </script>
 <?php }
-?>
-<!-- REGISTRO DE SALIDA-->
-<?php
-if (!empty($_POST["btnentrada"])) {
+
+if (!empty($_POST["btnsalida"])) {
     if (!empty($_POST["txtci"])) {
         $ci = $_POST["txtci"];
         $consulta = $conection->query("SELECT COUNT(*) as 'total' FROM empleado WHERE dni='$ci'");
-            $id = $conection->query("select id_empleado from empleado where dni='$ci'");
-            if ($consulta->fetch_object()->total > 0) {
-            $fecha = date("Y-m-d H:i:s");
+        if ($consulta->fetch_object()->total > 0) {
+            $id = $conection->query("SELECT id_empleado FROM empleado WHERE dni='$ci'");
             $id_empleado = $id->fetch_object()->id_empleado;
-            $buqueda=$conection->query("select id_asistencia from asistencia where id_empleado=$id_empleado order by id-asistencia desc limit 1");
-            $id_asistencia=$busqueda->fetch_object()->id_asistencia;
-            $sql = $conection->query(" update  asistencia set salida=$fecha'where id_asistencia=$id_asistencia");
+
+            $fecha = date("Y-m-d H:i:s");
+            $buqueda = $conection->query("SELECT id_asistencia FROM asistencia WHERE id_empleado=$id_empleado ORDER BY id_asistencia DESC LIMIT 1");
+            $id_asistencia = $buqueda->fetch_object()->id_asistencia;
             
+            $sql = $conection->query("UPDATE asistencia SET salida='$fecha' WHERE id_asistencia=$id_asistencia");
+
             if ($sql == true) {
                 ?>
                 <script>
@@ -100,7 +100,7 @@ if (!empty($_POST["btnentrada"])) {
                     });
                 </script>
             <?php } else {
-            ?>
+                ?>
                 <script>
                     $(function notificacion() {
                         new PNotify({
@@ -147,5 +147,4 @@ if (!empty($_POST["btnentrada"])) {
             window.history.replaceState(null, null, window.location.pathname);
         }, 0);
     </script>
-<?php }
-?>
+<?php } ?>
