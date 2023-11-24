@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="red">
-                    <a href="estudiante.php" class="activo">
+                    <a href="Facultad.php" class="activo">
                         <img src="../public/img-inicio/graduation-cap.png" class="img-inicio" alt="">
                         <!-- <i class="fas fa-house-user"></i> -->
                         <span class="lbl">FACULTADES</span>

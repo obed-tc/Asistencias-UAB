@@ -8,7 +8,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
 
 ?>
 <style>
-    ul li:nth-child(2).activo {
+    ul li:nth-child(4).activo {
         background: rgb(11, 150, 214) !important;
     }
 </style>
@@ -31,26 +31,22 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
 <!-- inicio del contenido principal -->
 <div class="page-content">
 
-    <h4 class="text-center text-secondary">Lista de Usuarios</h4>
+    <h4 class="text-center text-secondary">Lista de Facultades</h4>
     <?php
     include "../modelo/conexion.php";
-    include "../controlador/controlador_modificar_usuario.php";
-    include "../controlador/controlador_eliminar_usuario.php";
     
-    $sql = $conection->query("SELECT * FROM usuario");
+    $sql = $conection->query("SELECT * FROM cargo");
 
     if ($sql) {
     ?>
-        <a href="registro_usuario.php" class="btn btn-primary btn-rounded mb-3"><i class="fa-solid fa-plus" fa-plus></i> &nbsp;REGISTRAR</a>
+        <a href="registro_facultad.php" class="btn btn-primary btn-rounded mb-3"><i class="fa-solid fa-plus"></i> &nbsp;REGISTRAR</a>
 
-        <table class="table table-bordered table-hover col-12" id="example">
+        <table class="table table-bordered table-hover w-100" id="example">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">NOMBRE</th>
-                    <th scope="col">APELLIDO</th>
-                    <th scope="col">USUARIO</th> <!-- Corregido: Cambiado UAUARIO a USUARIO -->
-                    <th scope="col">ACCIONES</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -58,16 +54,15 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                 while ($datos = $sql->fetch_object()) {
                 ?>
                     <tr>
-                        <td><?= $datos->id_usuario ?></td>
+                        <td><?= $datos->id_cargo ?></td>
                         <td><?= $datos->nombre ?></td>
-                        <td><?= $datos->apellido ?></td>
-                        <td><?= $datos->usuario ?></td>
+                        
                         <td>
-                            <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_usuario ?>" class="btn btn-warning btn-sm-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="usuario.php?id=<?= $datos->id_usuario ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
+                            <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_cargo ?>" class="btn btn-warning btn-sm-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="usuario.php?id=<?= $datos->id_cargo ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
-                    <div class="modal fade" id="exampleModal<?= $datos->id_usuario ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal<?= $datos->id_cargo ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header d-flex justify-content-between">
@@ -80,7 +75,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                                     <div class="row">
                                         <form action="" method="POST"> <!-- Agrega el atributo method y corrige el atributo action con la URL correcta -->
                                             <div hidden class="fl-flex-label mb-4 px-2 col-12 ">
-                                                <input type="text" placeholder="ID" class="input input__text" name="txtid" value="<?= $datos->id_usuario ?>">
+                                                <input type="text" placeholder="ID" class="input input__text" name="txtid" value="<?= $datos->id_cargo ?>">
                                             </div>
                                             <div class="fl-flex-label mb-4 px-2 col-12 ">
                                                 <input type="text" placeholder="Nombre" class="input input__text" name="txtnombre" value="<?= $datos->nombre ?>">
@@ -92,8 +87,8 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                                                 <input type="text" placeholder="Usuario" class="input input__text" name="txtusuario" value="<?= $datos->usuario ?>">
                                             </div>
                                             <div class="text-right p-2">
-                                                <a href="usuario.php" class="btn btn-secondary btn-rounded m-2" data-dismiss="modal">Cerrar</a>
-                                                <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-rounded m-2">Modificar</button>
+                                                <a href="usuario.php" class="btn btn-secondary btn-bordered" data-dismiss="modal">Cerrar</a>
+                                                <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-bordered">Modificar</button>
                                             </div>
                                         </form>
                                     </div>
