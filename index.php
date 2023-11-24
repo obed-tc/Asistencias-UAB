@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Bienvenida</title>
     <link rel="stylesheet" href="public/estilos/estilos.css">
+     <!-- pNotify -->
+     <link href="public/pnotify/css/pnotify.css" rel="stylesheet" />
+        <link href="public/pnotify/css/pnotify.buttons.css" rel="stylesheet" />
+        <link href="public/pnotify/css/custom.min.css" rel="stylesheet" />
+     <!-- pnotify -->
+     <script src="public/pnotify/js/jquery.min.js">
+        </script>
+        <script src="public/pnotify/js/pnotify.js">
+        </script>
+        <script src="public/pnotify/js/pnotify.buttons.js">
+        </script>
 </head>
 <style>
     body {
@@ -94,15 +105,20 @@
 <body>
     <h1>BIENVENIDO, REGISTRA TU ASISTENCIA</h1>
     <h2 id="fecha"></h2>
+    <?php
+    include "modelo/conexion.php";
+    include "controlador/controlador_registrar_asistencia.php";
+
+    ?>
     <div class="container">
         <img src="https://www.eduopinions.com/wp-content/uploads/2017/08/Universidad-Adventista-de-Bolivia-UAB-campus.jpg" alt="Campus Image">
         <a class="acceso" href="vista/login/login.php">Ingresar al sistema</a>
         <p class="CI">Ingrese su CI</p>
-        <form action="">
+        <form action="" method="POST">
             <input type="text" placeholder="numero de CI" name="txtci">
             <div class="botones">
-                <a class="entrada" href="#">ENTRADA</a>
-                <a class="salida">SALIDA</a>
+                <button clase="entrada"type="submit" name="btnentrada" value="ok">ENTRADA</button>
+                <button clase="salida"type="submit" name="btnsalida" value="ok">SALIDA</button>
             </div>
         </form>
     </div>

@@ -1,26 +1,26 @@
 <?php
 if (!empty($_POST["btnregistrar"])) {
-    if (!empty($_POST["txtid"]) && !empty($_POST["txtnombre"])) {
-        $id = $_POST["txtid"];
+    if (!empty($_POST["txtnombre"]) and !empty($_POST["txtapellido"]) and !empty($_POST["txtusuario"])) {
         $nombre = $_POST["txtnombre"];
-        $telefono = $_POST["txttelefono"];
-        $ubicacion = $_POST["txtubicacion"];
-        $ruc = $_POST["txtruc"];
-
-        $sql = $conection->query("UPDATE empresa SET nombre='$nombre', telefono='$telefono', ubicacion='$ubicacion', ruc=$ruc WHERE id_empresa=$id");
-
-        if ($sql == true) { ?>
+        $apellido = $_POST["txtapellido"];
+        $usuario = $_POST["txtusuario"];
+        $id = $_POST["txtid"];
+        $sql = $conection->query("UPDATE usuario SET nombre='$nombre', apellido='$apellido', usuario='$usuario' WHERE id_usuario=$id");
+        if ($sql == true) {
+?>
             <script>
                 $(function notificacion() {
                     new PNotify({
                         title: "CORRECTO",
                         type: "success",
-                        text: "Los datos se han modificado correctamente",
+                        text: "Datos modificados correctamente",
                         styling: "bootstrap3"
                     });
                 });
             </script>
-        <?php } else { ?>
+<?php
+        } else {
+?>
             <script>
                 $(function notificacion() {
                     new PNotify({
@@ -31,22 +31,23 @@ if (!empty($_POST["btnregistrar"])) {
                     });
                 });
             </script>
-        <?php
+<?php
         }
-    } else { ?>
+    } else {
+?>
         <script>
             $(function notificacion() {
                 new PNotify({
                     title: "INCORRECTO",
                     type: "error",
-                    text: "No se ha enviado el identificador o el nombre",
+                    text: "Los campos están vacíos",
                     styling: "bootstrap3"
                 });
             });
         </script>
-    <?php
+<?php
     }
-    ?>
+?>
     <script>
         setTimeout(() => {
             window.history.replaceState(null, null, window.location.pathname);
