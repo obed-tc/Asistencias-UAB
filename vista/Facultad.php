@@ -34,6 +34,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
     <h4 class="text-center text-secondary">Lista de Facultades</h4>
     <?php
     include "../modelo/conexion.php";
+    include "../controlador/controlado_modificar_faculdad.php";
     
     $sql = $conection->query("SELECT * FROM cargo");
 
@@ -66,7 +67,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header d-flex justify-content-between">
-                                    <h5 class="modal-title w-100" id="exampleModalLabel">Modificar Usuario</h5>
+                                    <h5 class="modal-title w-100" id="exampleModalLabel">Modificar FACULTAD</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -80,15 +81,9 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                                             <div class="fl-flex-label mb-4 px-2 col-12 ">
                                                 <input type="text" placeholder="Nombre" class="input input__text" name="txtnombre" value="<?= $datos->nombre ?>">
                                             </div>
-                                            <div class="fl-flex-label mb-4 px-2 col-12 ">
-                                                <input type="text" placeholder="Apellido" class="input input__stext" name="txtapellido" value="<?= $datos->apellido ?>">
-                                            </div>
-                                            <div class="fl-flex-label mb-4 px-2 col-12 ">
-                                                <input type="text" placeholder="Usuario" class="input input__text" name="txtusuario" value="<?= $datos->usuario ?>">
-                                            </div>
                                             <div class="text-right p-2">
-                                                <a href="usuario.php" class="btn btn-secondary btn-bordered" data-dismiss="modal">Cerrar</a>
-                                                <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-bordered">Modificar</button>
+                                                <a href="usuario.php" class="btn btn-secondary btn-rounded" data-dismiss="modal">Cerrar</a>
+                                                <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-rounded">Modificar</button>
                                             </div>
                                         </form>
                                     </div>
