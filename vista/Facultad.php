@@ -60,7 +60,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                         
                         <td>
                             <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_cargo ?>" class="btn btn-warning btn-sm-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="usuario.php?id=<?= $datos->id_cargo ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
+                            <a href="faculdad.php?id=<?= $datos->id_cargo ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                     <div class="modal fade" id="exampleModal<?= $datos->id_cargo ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
