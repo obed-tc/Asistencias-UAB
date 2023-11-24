@@ -35,6 +35,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
     <?php
     include "../modelo/conexion.php";
     include "../controlador/controlado_modificar_faculdad.php";
+    include "../controlador/controlador_eliminar_faculdad.php";
     
     $sql = $conection->query("SELECT * FROM cargo");
 

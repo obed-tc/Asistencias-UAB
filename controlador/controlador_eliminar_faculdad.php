@@ -1,14 +1,14 @@
 <?php
 if (!empty($_GET["id"])){
     $id = $_GET["id"];
-    $sql=$conection->query("delete from cargo where id_empleado=$id");
+    $sql=$conection->query("delete from cargo where id_cargo=$id");
     if ($sql==true) {?>
       <script>
             $(function notificacion() {
                 new PNotify({
                     title: "CORRECTO",
                     type: "success",
-                    text: "El usuario ha sido eliminado correctamente",
+                    text: "La faculdad ha sido eliminada correctamente",
                     styling: "bootstrap3"
                 });
             });
@@ -19,7 +19,7 @@ if (!empty($_GET["id"])){
                 new PNotify({
                     title: "CORRECTO",
                     type: "success",
-                    text: "Error al eiminar estudiante",
+                    text: "Error al eliminar Faculdad",
                     styling: "bootstrap3"
                 });
             });
