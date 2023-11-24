@@ -61,7 +61,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                         
                         <td>
                             <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_cargo ?>" class="btn btn-warning btn-sm-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="faculdad.php?id=<?= $datos->id_cargo ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
+                            <a href="facultad.php?id=<?= $datos->id_cargo ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
                         </td>
                     </tr>
                     <div class="modal fade" id="exampleModal<?= $datos->id_cargo ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -83,7 +83,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                                                 <input type="text" placeholder="Nombre" class="input input__text" name="txtnombre" value="<?= $datos->nombre ?>">
                                             </div>
                                             <div class="text-right p-2">
-                                                <a href="usuario.php" class="btn btn-secondary btn-rounded" data-dismiss="modal">Cerrar</a>
+                                                <a href="facultad.php" class="btn btn-secondary btn-rounded" data-dismiss="modal">Cerrar</a>
                                                 <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-rounded">Modificar</button>
                                             </div>
                                         </form>
