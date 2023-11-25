@@ -103,8 +103,11 @@
     }
 </style>
 <body>
+    <?php 
+    date_default_timezone_set("America/La_Paz");
+    ?>
     <h1>BIENVENIDO, REGISTRA TU ASISTENCIA</h1>
-    <h2 id="fecha"></h2>
+    <h2 id="fecha"><?=date("d/m/Y, h:i:s")?></h2>
     <?php
     include "modelo/conexion.php";
     include "controlador/controlador_registrar_asistencia.php";
@@ -115,10 +118,10 @@
         <a class="acceso" href="vista/login/login.php">Ingresar al sistema</a>
         <p class="CI">Ingrese su CI</p>
         <form action="" method="POST">
-            <input type="text" placeholder="numero de CI" name="txtci">
+            <input type="text" placeholder="numero de CI" name="txtci" id="txtci">
             <div class="botones">
-                <button clase="entrada"type="submit" name="btnentrada" value="ok">ENTRADA</button>
-                <button clase="salida"type="submit" name="btnsalida" value="ok">SALIDA</button>
+                <button id="salida" clase="salida"type="submit" name="btnsalida" value="ok">SALIDA</button>
+                <button id="entrada"type="submit" name="btnentrada" value="ok">ENTRADA</button>
             </div>
         </form>
     </div>
@@ -130,6 +133,26 @@
         let fechaHora = fecha.toLocaleString();
         document.getElementById("fecha").textContent = fechaHora;
         }, 1000);
+    </script>
+    <script>
+        let dni=documento.getElementById("txtci");
+        dni.addEventListener("input", function(){
+            if (thi.value.lengt >8) {
+                this.value= this.value.slice(0.8)
+
+            }
+        })
+        //eventos para la entrada y salida
+        document.addEventListener("keyup",function(event){
+            if (event.code=="ArrowLeft") {
+                document.getElementById("salida").click() 
+            } else {
+                if (event.code=="ArrowRight") {
+                    document.getElementById("entrada").click()                    
+                }
+                
+            }
+        })
     </script>
 </body>
 </html>
