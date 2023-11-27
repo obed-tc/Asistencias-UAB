@@ -7,13 +7,14 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
         <meta content="ie=edge" http-equiv="x-ua-compatible">
-        <title>Plantilla-php</title>
+        <title>Asistencias UAB</title>
 
 
 
         <link href="https://tresplazas.com/web/img/big_punto_de_venta.png" rel="shortcut icon">
         <link href="../public/app/publico/css/lib/font-awesome/font-awesome.min.css" rel="stylesheet">
-        <link href="../public/bootstrap5/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link href="../public/bootstrap5/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
         <link rel="stylesheet" href="../public/app/publico/css/lib/lobipanel/lobipanel.min.css">
         <link rel="stylesheet" href="../public/app/publico/css/separate/vendor/lobipanel.min.css">
@@ -34,7 +35,8 @@
         <link href="../public/app/publico/css/mis_estilos/estilos.css" rel="stylesheet">
 
         <!-- form -->
-        <link rel="stylesheet" type="text/css" href="../public/app/publico/css/lib/jquery-flex-label/jquery.flex.label.css"> <!-- Original -->
+        <link rel="stylesheet" type="text/css"
+            href="../public/app/publico/css/lib/jquery-flex-label/jquery.flex.label.css"> <!-- Original -->
 
         <!-- mis estilos -->
         <link href="../public/principal/css/estilos.css" rel="stylesheet">
@@ -63,6 +65,10 @@
         <script src="../public/chart/chart.js"></script>
 
         <style>
+            h6 {
+                color: white
+            }
+
             .marca {
                 width: 100%;
                 background: rgb(13, 39, 48);
@@ -131,14 +137,19 @@
                             </div>
 
                             <div class="dropdown user-menu">
-                                <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="dropdown-toggle" id="dd-user-menu" type="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
                                     <img src="../public/app/publico/img/user.svg" alt="">
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right pt-0" aria-labelledby="dd-user-menu">
 
-                                    <h5 class="p-2 text-center bg-primary"><?=$_SESSION["nombre"]." ".$_SESSION["apellido"]?></h5>
-                                    <a class="dropdown-item" href="perfil.php"><span class="font-icon glyphicon glyphicon-user"></span>Perfil</a>
-                                    <a class="dropdown-item" href="cambiarClave.php"><span class="font-icon glyphicon glyphicon-lock"></span>Cambiar contraseña</a>
+                                    <h5 class="p-2 text-center bg-primary">
+                                        <?= $_SESSION["nombre"] . " " . $_SESSION["apellido"] ?>
+                                    </h5>
+                                    <a class="dropdown-item" href="perfil.php"><span
+                                            class="font-icon glyphicon glyphicon-user"></span>Perfil</a>
+                                    <a class="dropdown-item" href="cambiarClave.php"><span
+                                            class="font-icon glyphicon glyphicon-lock"></span>Cambiar contraseña</a>
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../controlador/controlador_cerrar_sesion.php">
@@ -147,7 +158,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!--.site-header-shown--> 
+                        <!--.site-header-shown-->
 
                         <div class="mobile-menu-right-overlay"></div>
                         <div class="site-header-collapsed">

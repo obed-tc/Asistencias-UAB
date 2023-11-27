@@ -43,7 +43,9 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
     empleado.apellido,
     empleado.dni,
     empleado.cargo,
-    cargo.nombre as 'nom_cargo'
+    cargo.nombre as 'nom_cargo',
+    empleado.horas_acumuladas
+
     FROM
     empleado
     INNER JOIN cargo ON empleado.cargo=cargo.id_cargo
@@ -58,9 +60,11 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">NOMBRE</th>
-                    <th scope="col">APELLIDO</th>
                     <th scope="col">CI</th>
                     <th scope="col">CARRERA</th>
+                    <th scope="col">HORAS</th>
+                    <th scope="col">ACCIONES</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -69,13 +73,18 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                 ?>
                     <tr>
                         <td><?= $datos->id_empleado ?></td>
-                        <td><?= $datos->nombre ?></td>
-                        <td><?= $datos->apellido ?></td>
+                        <td><?= $datos->nombre ?>
+                        <?= $datos->apellido ?>
+                    </td>
                         <td><?= $datos->dni ?></td>
                         <td><?= $datos->nom_cargo ?></td>
+                        <td><?= $datos->horas_acumuladas ?></td>
+                        
                         <td>
                             <a href="" data-toggle="modal" data-target="#exampleModal<?= $datos->id_empleado ?>" class="btn btn-warning btn-sm-2"><i class="fa-solid fa-pen-to-square"></i></a>
                             <a href="estudiante.php? id=<?=$datos->id_empleado ?>" onclick="return advertencia(event)" class="btn btn-danger btn-sm-2"><i class="fa-solid fa-trash"></i></a>
+                            <a href="kardex.php?id=<?=$datos->id_empleado ?>"  class="btn btn-success btn-sm-2"><i class="fa fa-folder"></i></a>
+                        
                         </td>
                     </tr>
                     <div class="modal fade" id="exampleModal<?= $datos->id_empleado ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -112,6 +121,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                                         <div class="text-right p-2">
                                             <a href="estudiante.php" class="btn btn-secondary btn-bordered" data-dismiss="modal">Cerrar</a>
                                             <button type="submit" value="ok" name="btnmodificar"class="btn btn-primary btn-bordered">Modificar</button>
+                                            
                                         </div>
                                     </form>
                                 </div>
@@ -132,7 +142,4 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
     ?>
 </div>
 </div>
-<!-- fin del contenido principal -->
-
-<!-- por último se carga el footer -->
 <?php require('./layout/footer.php'); ?>

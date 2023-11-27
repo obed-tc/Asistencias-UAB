@@ -30,10 +30,11 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
     <?php
     include '../modelo/conexion.php';
     include "../controlador/controlador_registrar_usuario.php"
-    ?>
+        ?>
 
     <div class="row">
-        <form action="" method="POST"> <!-- Agrega el atributo method y corrige el atributo action con la URL correcta -->
+        <form action="" method="POST">
+            <!-- Agrega el atributo method y corrige el atributo action con la URL correcta -->
             <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
                 <input type="text" placeholder="Nombre" class="input input__select" name="txtnombre">
             </div>
@@ -41,14 +42,15 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
                 <input type="text" placeholder="Apellido" class="input input__select" name="txtapellido">
             </div>
             <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
-                <input type="text" placeholder="Usuario" class="input input__select" name="txtusuario">
+                <input type="email" placeholder="Correo electronico" class="input input__select" name="txtusuario">
             </div>
             <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
                 <input type="password" placeholder="Contraseña" class="input input__select" name="txtpassword">
             </div>
             <div class="text-right p-2">
                 <a href="usuario.php" class="btn btn-secondary btn-rounded">Atras</a>
-                <button type="submit" value="ok" name="btnregistrar"class="btn btn-primary btn-rounded">Registrar</button>
+                <button type="submit" value="ok" name="btnregistrar"
+                    class="btn btn-primary btn-rounded">Registrar</button>
             </div>
         </form>
     </div>

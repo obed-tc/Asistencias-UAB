@@ -1,10 +1,10 @@
 <?php
 if (!empty($_POST["btnregistrar"])) {
-    if (!empty($_POST["txtnombre"]) && !empty($_POST["txtapellido"]) && !empty($_POST["txtdni"]) && !empty($_POST["txtcargo"])) {
+    if (!empty($_POST["txtnombre"]) && !empty($_POST["txtapellido"]) && !empty($_POST["txtdni"]) && !empty($_POST["textcargo"])) {
         $nombre = $_POST["txtnombre"];
         $apellido = $_POST["txtapellido"];
         $dni = $_POST["txtdni"];
-        $cargo = $_POST["txtcargo"];
+        $cargo = $_POST["textcargo"];
 
         $sql = $conection->query("SELECT COUNT(*) as 'total' FROM empleado WHERE dni='$dni'");
         $total = $sql->fetch_object()->total;
@@ -16,7 +16,7 @@ if (!empty($_POST["btnregistrar"])) {
                     new PNotify({
                         title: "ERROR",
                         type: "error",
-                        text: "Este CI <?=$dni?> ya existe",
+                        text: "Este CI <?= $dni ?> ya existe",
                         styling: "bootstrap3"
                     });
                 });

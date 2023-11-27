@@ -5,7 +5,7 @@ if (empty($_SESSION['nombre']) && empty($_SESSION['apellido'])) {
     header('location:login/login.php');
     exit(); // Agrega exit() después de redirigir para evitar que el script siga ejecutándose.
 }
-$id=$_SESSION["id"];
+$id = $_SESSION["id"];
 ?>
 
 
@@ -26,34 +26,40 @@ $id=$_SESSION["id"];
     <?php
     include '../modelo/conexion.php';
     include "../controlador/controlador_modificar_perfil.php";
-    $sql= $conection-> query("select * from usuario where id_usuario=$id");
+    $sql = $conection->query("select * from usuario where id_usuario=$id");
     ?>
 
     <div class="row">
-        <form action="" method="POST"> <?php
-        while ($datos=$sql->fetch_object()){ ?>
-             <div hidden class="fl-flex-label mb-4 px-2 col-12 col-md-6">
-                <input type="text" placeholder="Nombre" class="input input__select" name="txtid"value="<?=$datos ->id_usuario?>">
-            </div>
-            <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
-                <input type="text" placeholder="Nombre" class="input input__select" name="txtnombre"value="<?=$datos ->nombre?>">
-            </div>
-            <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
-                <input type="text" placeholder="Apelido" class="input input__select" name="txtapellido"value="<?=$datos ->apellido?>">
-            </div>
-            <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
-                <input type="text" placeholder="Usuario" class="input input__select" name="txtusuario"value="<?=$datos ->usuario?>">
-            </div>
-             
-            <div class="text-right p-2">
-                <!--<a href="usuario.php" class="btn btn-secondary btn-rounded">Atras</a>-->
-                <button type="submit" value="ok" name="btnregistrar"class="btn btn-primary btn-rounded">Modificar</button>
-            </div>
+        <form action="" method="POST">
+            <?php
+            while ($datos = $sql->fetch_object()) { ?>
+                <div hidden class="fl-flex-label mb-4 px-2 col-12 col-md-6">
+                    <input type="text" placeholder="Nombre" class="input input__select" name="txtid"
+                        value="<?= $datos->id_usuario ?>">
+                </div>
+                <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
+                    <input type="text" placeholder="Nombre" class="input input__select" name="txtnombre"
+                        value="<?= $datos->nombre ?>">
+                </div>
+                <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
+                    <input type="text" placeholder="Apelido" class="input input__select" name="txtapellido"
+                        value="<?= $datos->apellido ?>">
+                </div>
+                <div class="fl-flex-label mb-4 px-2 col-12 col-md-6">
+                    <input type="text" placeholder="Correo electronico" class="input input__select" name="txtusuario"
+                        value="<?= $datos->usuario ?>">
+                </div>
 
-        <?php
-        }
-        ?>
-           
+                <div class="text-right p-2">
+                    <!--<a href="usuario.php" class="btn btn-secondary btn-rounded">Atras</a>-->
+                    <button type="submit" value="ok" name="btnregistrar"
+                        class="btn btn-primary btn-rounded">Modificar</button>
+                </div>
+
+                <?php
+            }
+            ?>
+
         </form>
     </div>
 </div>
